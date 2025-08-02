@@ -4,8 +4,35 @@
     <meta charset="UTF-8">
     <title>Rock Paper Scissors</title>
     <script src="rock.js"></script>
+    <link href="style.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Open the console to play!</h1>
+    <header>
+        <h1 id="title">
+            <span id="rockText">Rock</span> <span id="paperText">Paper</span> <span id="scissorsText">Scissors</span>
+        </h1>
+    </header>
+    <div class="hero">
+        <h2>"Rock beats Scissors; Scissors beat Paper; Paper beats Rock.</h2>
+        <h2>The world is round indeed"</h2>
+        <h2>Fight the battle to make the world more rounder!!</h2>
+        <h3 id="quoter">-yakmaster, 2025</h3>
+    </div>
+    <div class="playSection">
+        <div class="scoreDiv">
+            <span id="playerScoreSection">Your Score :<span id="playerScore"> 0</span></span>
+            <span id="computerScoreSection">Computer's Score :<span id="computerScore"> 0</span></span> 
+        </div>
+        <div class="pickDiv">
+            <span id="playerPick"><img></span>
+            <span id="computerPick"><img></span>
+        </div>
+        <p id="msg">The battle of the trinity.</p>
+        <div class="selectionSection">
+            <img id="rock" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHIKNwQZfmbRPha-Jjpc4X0s7b5SfIA39qgw&s">
+            <img id="paper" src="https://media.geeksforgeeks.org/wp-content/uploads/20210705223645/paper.jpeg">
+            <img id="scissors" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC9oUAbibZvFraj0t5LAIQUtgv8QBM_LJE2kEOkCUwTdSQwQyRGWHYtNdCBIq5Ls6powM&usqp=CAU">
+        </div>
+    </div>
 </body>
 </html>
