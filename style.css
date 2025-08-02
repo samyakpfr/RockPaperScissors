@@ -43,6 +43,7 @@ header{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-image: url('');
 }
 img{
     width: 80px;
@@ -59,13 +60,23 @@ img{
     gap: 505px;
     margin-top: 50px;
 }
-#msg{
+p{
     font-size: larger;
-    margin: 50px;
-    padding: 20px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    font-size: 30px;
+
 }
 .selectionSection{
     display: flex;
     gap:50px;
     padding:20px;
+}
+#playerScoreSection{
+    font-size: 25px;
+    color:rgb(0, 208, 255);
+}
+#computerScoreSection{
+    font-size: 25px;
+    color: rgb(255, 42, 0);
 }
