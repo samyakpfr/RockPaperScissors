@@ -62,8 +62,10 @@ img{
 #msg{
     font-size: larger;
     margin: 50px;
+    padding: 20px;
 }
 .selectionSection{
     display: flex;
     gap:50px;
+    padding:20px;
 }
