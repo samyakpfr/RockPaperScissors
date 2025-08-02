@@ -1,96 +1,88 @@
+const compPickImg = document.querySelector("#computerPick > img");
+const playerPickImg = document.querySelector("#playerPick > img");
+const rockImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHIKNwQZfmbRPha-Jjpc4X0s7b5SfIA39qgw&s";
+const paperImageUrl = "https://media.geeksforgeeks.org/wp-content/uploads/20210705223645/paper.jpeg";
+const scissorsImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRC9oUAbibZvFraj0t5LAIQUtgv8QBM_LJE2kEOkCUwTdSQwQyRGWHYtNdCBIq5Ls6powM&usqp=CAU";
+const msg = document.querySelector("#msg");
+const playerSco = document.querySelector("#playerScore");
+const computerSco = document.querySelector("#computerScore");
 function getComputerChoice(){
     //return either rock, paper or scissors.
     let randomValue = Math.floor(Math.random() * 3);
     if(randomValue == 0){
+        compPickImg.setAttribute("src", rockImageUrl);
         return "rock";
     } 
     else if(randomValue == 1){
+        compPickImg.setAttribute("src", paperImageUrl);
         return "paper";
     }
     else{
+        compPickImg.setAttribute("src", scissorsImageUrl);
         return "scissors";
     }
 }
-
-function getHumanChoice(){
-    //take user's input
-    return (prompt("Rock, Paper, Scissors!!!")).toLowerCase();
+let playerScore = 0;
+let computerScore = 0;
+const selectionSection = document.querySelector(".selectionSection");
+function updateScore(playerS, computerS){
+    playerSco.textContent = playerS;
+    computerSco.textContent = computerS;
 }
+let humanSelection;
+selectionSection.addEventListener("click", (event)=>{
+    if(event.target.id == "rock"){
+        playerPickImg.setAttribute("src", rockImageUrl);
+        humanSelection = "rock";
+    }
+    else if(event.target.id == "paper"){
+        playerPickImg.setAttribute("src", paperImageUrl);
+        humanSelection = "paper";
+    }
+    else{ 
+        playerPickImg.setAttribute("src", scissorsImageUrl);
+        humanSelection = "scissors";
+    }
 
-function printScoreCard(humanScore, computerScore){
-    console.log(`Your Score = ${humanScore} || Computer's Score = ${computerScore}`)
-}
-
-function printComputerChoice(computerChoice){
-    let computerChoiceBeautified = computerChoice.at(0).toUpperCase() + computerChoice.slice(1);
-    console.log(`Computer = ${computerChoiceBeautified}`);
-}
-
-function printLine(){ 
-    console.log("--------------------------------------------");
-}
-
-function playRound(){
-    let humanSelection = getHumanChoice();
     let computerSelection = getComputerChoice();
     if(humanSelection == computerSelection){
-        printComputerChoice(computerSelection);
-        console.log("It's a tie!");
-        return 2;
+        msg.textContent = "drew the match!";
     }
     else if(humanSelection == "rock" && computerSelection == "scissors"){
-        printComputerChoice(computerSelection);
-        console.log("You Win!");
-        return 1;
+        msg.textContent = "WIN!";
+        playerScore++;
+        updateScore(playerScore, computerScore);
     }
     else if(humanSelection == "scissors" && computerSelection == "rock"){
-        printComputerChoice(computerSelection);
-        console.log("You lose!");
-        return 0;
+         msg.textContent = "LOSE!";
+        computerScore++;
+        updateScore(playerScore, computerScore);
     }
     else if(humanSelection == "paper" && computerSelection == "rock"){
-        printComputerChoice(computerSelection);
-        console.log("You Win!");
-        return 1;
+        msg.textContent = "WIN!";
+        playerScore++;
+        updateScore(playerScore, computerScore);
     }
     else if(humanSelection == "paper" && computerSelection == "scissors"){
-        printComputerChoice(computerSelection);
-        console.log("You lose!");
-        return 0;
+        msg.textContent = "LOSE!";
+        computerScore++;
+        updateScore(playerScore, computerScore);
     }
     else if(humanSelection == "rock" && computerSelection == "paper"){
-        printComputerChoice(computerSelection);
-        console.log("You lose!");
-        return 0;
+        msg.textContent = "LOSE!";
+        computerScore++;
+        updateScore(playerScore, computerScore);
     }
     else{
-        printComputerChoice(computerSelection);
-        console.log("You Win!");
-        return 1;
+         msg.textContent = "WIN!";
+        playerScore++;
+        updateScore(playerScore, computerScore); 
     }
-}
+});
 
-let humanScore = 0;
-let computerScore = 0;
+    
 
-let numberOfRounds = Number(prompt("Number of rounds you want to play?"));
 
-for(let i=1; i <= numberOfRounds; i++){
-    let result = playRound();
-    if (result == 2){
-        printScoreCard(humanScore, computerScore);
-        printLine();
-    }
-    else if(result){
-        humanScore++;
-        printScoreCard(humanScore, computerScore);
-        printLine();
-        }
-    else if(result == 0){
-        computerScore++;
-        printScoreCard(humanScore, computerScore);
-        printLine();
-    }
-}
+
 
 
