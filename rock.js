@@ -35,7 +35,7 @@ selectionSection.addEventListener("click", (event)=>{
         playerPickImg.setAttribute("src", rockImageUrl);
         humanSelection = "rock";
     }
-    else if(event.target.id = "paper"){
+    else if(event.target.id == "paper"){
         playerPickImg.setAttribute("src", paperImageUrl);
         humanSelection = "paper";
     }
